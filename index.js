@@ -66,3 +66,7 @@ function updateList() {
     guestList.appendChild(li);
   });
 }
+
+function saveGuests() {
+  localStorage.setItem("guests", JSON.stringify(guests));
+}
