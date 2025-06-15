@@ -36,3 +36,33 @@ form.addEventListener("submit", function (e) {
   updateList();
   guestInput.value = "";
 });
+
+function updateList() {
+  guestList.innerHTML = "";
+
+  guests.forEach((guest) => {
+    const li = document.createElement("li");
+
+    const nameSpan = document.createElement("span");
+    nameSpan.textContent = `${guest.name} - ${guest.attending ? "Attending" : "Not Attending"}`;
+
+    const rsvpBtn = document.createElement("button");
+    rsvpBtn.textContent = "Toggle RSVP";
+    rsvpBtn.onclick = () => {
+      guest.attending = !guest.attending;
+      saveGuests();
+      updateList();
+    };
+
+    const removeBtn = document.createElement("button");
+    removeBtn.textContent = "Remove";
+    removeBtn.onclick = () => {
+      guests = guests.filter((g) => g.id !== guest.id);
+      saveGuests();
+      updateList();
+    };
+
+    li.append(nameSpan, rsvpBtn, removeBtn);
+    guestList.appendChild(li);
+  });
+}
