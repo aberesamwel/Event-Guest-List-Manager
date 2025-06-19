@@ -24,11 +24,14 @@ form.addEventListener("submit", function (e) {
     alert("Guest limit is 10!");
     return;
   }
+  const now = new Date();
+  const dateAdded = `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`;
 
   const guest = {
     id: Date.now(),
     name: name,
-    attending: true
+    attending: true,
+    addedOn: dateAdded
   };
 
   guests.push(guest);
@@ -44,7 +47,10 @@ function updateList() {
     const li = document.createElement("li");
 
     const nameSpan = document.createElement("span");
-    nameSpan.textContent = `${guest.name} - ${guest.attending ? "Attending" : "Not Attending"}`;
+    nameSpan.textContent = `${guest.name} - ${guest.attending ? "Attending" : "Not Attending"} (Added on: ${guest.addedOn})`;
+
+
+
 
     const rsvpBtn = document.createElement("button");
     rsvpBtn.textContent = "Toggle RSVP";
@@ -66,6 +72,8 @@ function updateList() {
     guestList.appendChild(li);
   });
 }
+
+
 
 function saveGuests() {
   localStorage.setItem("guests", JSON.stringify(guests));
