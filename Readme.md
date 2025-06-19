@@ -8,11 +8,8 @@ A simple and elegant web application to manage guest lists for any event. Users 
 
 ## 🚀 Live Demo
 
-👉 [View Live App Here](https://your-live-link-here.com)
+👉 [View Live App Here](https://github.com/aberesamwel/Event-Guest-List-Manager)
 
-> _Replace the link above with your actual live deployment URL (e.g., GitHub Pages, Vercel, Netlify)._
-
----
 
 ## 🧠 Features
 
